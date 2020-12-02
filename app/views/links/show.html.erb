@@ -1,0 +1,6 @@
+<h1><%= @link.title %></h1>
+<p><%= @link.url %></p>
+
+<%= link_to "Back", root_path , class: "btn btn-primary"%>
+<%= link_to "Edit", edit_link_path, class: "btn btn-warning"%>
+<%= link_to "Delete", link_path(@link), method: :delete, class: "btn btn-danger" , data: { confirm: "Are you sure ?" }%>

@@ -1,1 +1,7 @@
-<h1>Links</h1>
+<h1>HackerNews 🚀</h1>
+
+<% @links.each do |link| %>
+ <h2><%= link_to link.title, link_path(link) %></h2>
+<% end %>
+
+<%= link_to "New link", new_link_path, class: "btn btn-info"%>
