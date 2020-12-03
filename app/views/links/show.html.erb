@@ -1,8 +1,15 @@
 <h1><%= @link.title %></h1>
 <p><%= @link.url %></p>
 
-<%= link_to "Back", root_path , class: "btn btn-primary"%>
 <% if @link.user_id == current_user.id %>
     <%= link_to "Edit", edit_link_path, class: "btn btn-warning"%>
     <%= link_to "Delete", link_path(@link), method: :delete, class: "btn btn-danger" , data: { confirm: "Are you sure ?" }%>
 <% end %>
+
+<h3><%= pluralize(@link.comments.count, "Comment")%></h3>
+<%= render @link.comments %>
+
+<h3>Reply to Comments;</h3>
+<%= render 'comments/form'%>
+
+<%= link_to "Back", root_path , class: "btn btn-primary"%>
