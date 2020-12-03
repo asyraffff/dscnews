@@ -1,9 +1,11 @@
 <h1><%= @link.title %></h1>
 <p><%= @link.url %></p>
 
-<% if @link.user_id == current_user.id %>
-    <%= link_to "Edit", edit_link_path, class: "btn btn-warning"%>
-    <%= link_to "Delete", link_path(@link), method: :delete, class: "btn btn-danger" , data: { confirm: "Are you sure ?" }%>
+<% if user_signed_in? %>
+    <% if @link.user_id == current_user.id %>
+        <%= link_to "Edit", edit_link_path, class: "btn btn-warning"%>
+        <%= link_to "Delete", link_path(@link), method: :delete, class: "btn btn-danger" , data: { confirm: "Are you sure ?" }%>
+    <% end %>
 <% end %>
 
 <h3><%= pluralize(@link.comments.count, "Comment")%></h3>
