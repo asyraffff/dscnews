@@ -2,6 +2,7 @@
 
 <% @links.each do |link| %>
  <h2><%= link_to link.title, link_path(link) %></h2>
+ <p>Submitted by <%= link.user.email %> <%= time_ago_in_words(link.created_at) %> ago</p>
 <% end %>
 
-<%= link_to "New link", new_link_path, class: "btn btn-info"%>
+<%# <%= current_user %> 
