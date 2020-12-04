@@ -1,4 +1,4 @@
 <%= simple_form_for([@link, @link.comments.build]) do |f| %>
- <%= f.input :content , label: false, placeholder: "Enter your comments here ..."%>
- <%= f.button :submit , class: "btn btn-default"%>
+  <%= f.input :content, label: false %>
+  <%= f.button :submit, class: "btn btn-default" %>
 <% end %>

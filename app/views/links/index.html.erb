@@ -1,8 +1,47 @@
-<h1>HackerNews 🚀</h1>
-
-<% @links.each do |link| %>
- <h2><%= link_to link.title, link_path(link) %></h2>
- <p>Submitted by <%= link.user.email %> <%= time_ago_in_words(link.created_at) %> ago</p>
+<div class="col-md-8 col-md-offset-2">
+<% if !user_signed_in? %>
+    <div class="jumbotron">
+        <h1 class="display-4">Welcome to dscnews</h1>
+        <p class="lead">A place where hackers👨🏻‍💻👩‍💻 meet and share interesting links!</p>
+        <hr class="my-4">
+        <p>Come and join us</p>
+        <%= link_to "Sign Up", new_user_registration_path,  class: "btn btn-primary btn-lg"%>
+    </div>
 <% end %>
-
+<% if user_signed_in? %>
+ <h1>GDSCnews 🚀</h1>
+<% end %>
+<% @links.each do |link| %>
+  <div class="index_link clearfix">
+  <div class="col-md-8">
+    <div class="row">
+      <div class="pull-left">
+        <h2><%= link_to link.title, link_path(link) %> <br></h2>
+        <p>Submitted <%= time_ago_in_words(link.created_at) %> ago by <%= link.user.username %></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="row">
+      <div class="btn-group pull-right">
+        <%= link_to like_link_path(link), method: :put, class: "btn btn-default" do %>
+          <i class="fas fa-chevron-up"></i>
+          <%= link.get_upvotes.size %>
+        <% end %>
+        <%= link_to dislike_link_path(link), method: :put, class: "btn btn-default" do %>
+          <i class="fas fa-angle-down"></i>
+          <%= link.get_downvotes.size %>
+        <% end %>
+      </div>
+    </div>
+    <div class="row pull-right index_comment">
+      <p><%= link_to pluralize(link.comments.size, "comment"), link_path(link) %></p>
+    </div>
+  </div>
+  </div>
+  <% end %>
+  <div class="btn-group">
+    <%= will_paginate @links %>
+  </div>
+</div>
 <%# <%= current_user %> 

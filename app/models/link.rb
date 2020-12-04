@@ -1,4 +1,6 @@
 class Link < ApplicationRecord
-    belongs_to :user
-    has_many :comments 
+   belongs_to :user
+   has_many :comments
+
+   acts_as_votable
 end

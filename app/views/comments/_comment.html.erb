@@ -1,10 +1,12 @@
 <div class="row comment">
- <div class="pull-left">
-  <p class="lead"><%= comment.content %></p>
-  <p><small>Submitted <%= time_ago_in_words(comment.created_at) %> ago by <%= comment.user.email %></small></p>
- </div>
+  <div class="pull-left">
+    <p class="lead"><%= comment.content %></p>
+    <p><small>Submitted <%= time_ago_in_words(comment.created_at) %> ago by <%= comment.user.username %></small></p>
+  </div>
+  <div class="pull-right">
+    <% if comment.user == current_user %>
+    <%= link_to "Delete", link_comment_path(comment.link, comment), method: :delete,
+                          data: { confirm: "Are you sure?" }, class: "btn btn-default" %>
+  <% end %>
+  </div>
 </div>
-
-
-<%# <%= link_to 'Delete', link_comment_path(comment.link, comment), method: :delete, 
-                      data: { confirm: "Are you sure ?"} %> 

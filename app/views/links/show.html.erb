@@ -1,17 +1,41 @@
-<h1><%= @link.title %></h1>
-<p><%= @link.url %></p>
+<div class="col-md-8 col-md-offset-2">
+  <div class="row link">
+    <h2><a href="<%= @link.url%>" target="_blank" rel="noopener noreferrer"><%= @link.title %></a></h2>
+    <p>Submitted by <%= @link.user.username %> <%= time_ago_in_words(@link.created_at) %> ago</p>
+  </div>
+  <div class="row">
+    <div class="btn-group">
+      <a class="btn btn-primary" href="<%= @link.url %>" target="_blank" rel="noopener noreferrer">Visit URL</a>
+      <%# <%= link_to "Visit URL", @link.url, class: "btn btn-primary" %>
+    </div>
+    <div class="btn-group">
+      <% if user_signed_in? %>
+        <% if @link.user_id == current_user.id %>
+          <%= link_to "Edit", edit_link_path(@link), class: "btn btn-default" %>
+          <%= link_to "Delete", link_path(@link), method: :delete,
+                              data: { confirm: "Are you sure?" }, class: "btn btn-default"  %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="btn-group pull-right">
+      <%= link_to like_link_path(@link), method: :put, class: "btn btn-default" do %>
+        <i class="fas fa-chevron-up"></i>
+        <%= @link.get_upvotes.size %>
+      <% end %>
+      <%= link_to dislike_link_path(@link), method: :put, class: "btn btn-default" do %>
+        <i class="fas fa-angle-down"></i>
+        <%= @link.get_downvotes.size %>
+      <% end %>
+    </div>
+  </div>
+  <div class="comments_title">
+    <h3><%= pluralize(@link.comments.size, "Comment") %>:</h3>
+    <%= render @link.comments %>
+  </div>
 
-<% if user_signed_in? %>
-    <% if @link.user_id == current_user.id %>
-        <%= link_to "Edit", edit_link_path, class: "btn btn-warning"%>
-        <%= link_to "Delete", link_path(@link), method: :delete, class: "btn btn-danger" , data: { confirm: "Are you sure ?" }%>
-    <% end %>
-<% end %>
-
-<h3><%= pluralize(@link.comments.count, "Comment")%></h3>
-<%= render @link.comments %>
-
-<h3>Reply to Comments;</h3>
-<%= render 'comments/form'%>
-
-<%= link_to "Back", root_path , class: "btn btn-primary"%>
+  <div class="row">
+    <h3>Reply to Comments:</h3>
+    <%= render 'comments/form' %>
+  </div>
+  <%= link_to "Back", root_path %>
+</div>

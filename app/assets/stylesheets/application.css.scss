@@ -27,6 +27,7 @@
 
 .jumbotron {
 	background-color: rgba(236, 99, 51, 0.25);
+	margin-top: 10px;
 }
 
 .link {
@@ -66,4 +67,18 @@ h2 a {
 
 .index_comment {
 	margin-top: 10px;
+}
+
+.button {
+	margin-top: 30px;
+}
+
+// show page
+
+.show {
+	border-top: 1px solid #eaeaea;
+	padding: 15px 0 20px 0;
+}
+.visit_url {
+	margin-left: 15px;
 }

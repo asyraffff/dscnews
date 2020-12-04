@@ -26,6 +26,8 @@ gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 gem 'sassc-rails', '>= 2.1.0'
 gem 'jquery-rails'
 gem 'devise', '~> 4.7', '>= 4.7.3'
+gem 'acts_as_votable', '~> 0.12.1'
+gem 'will_paginate', '~> 3.3'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
