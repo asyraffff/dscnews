@@ -14,4 +14,4 @@ I'm not a fan of `Hackernews`, but I love how the structure of the website. Hack
 
 I also write an awesoem blog post talking about the process of building this project and what I've learned along the process.
 
-[Enjoy](https://asyraf.bearblog.dev/hackernews-clone/
+[Enjoy](https://asyraf.bearblog.dev/hackernews-clone/)
