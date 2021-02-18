@@ -1,24 +1,17 @@
-# README
+# HackerNews Clone 🔥
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+I'm not a fan of `Hackernews`, but I love how the structure of the website. Hackernews is one of the awesome link aggregator website out there. Same like Reddit. The feature of Hackernews that I love is ;
 
-Things you may want to cover:
+✅  nested comments
 
-* Ruby version
+✅  simple form 😂
 
-* System dependencies
+✅  the algo for the points system
 
-* Configuration
+✅  the upvote stuff 🤘
 
-* Database creation
+### See the demo [live app !!!](https://dscnews.herokuapp.com/)
 
-* Database initialization
+I also write an awesoem blog post talking about the process of building this project and what I've learned along the process.
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+[Enjoy](https://asyraf.bearblog.dev/hackernews-clone/
